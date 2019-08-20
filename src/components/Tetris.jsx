@@ -3,11 +3,12 @@ import React from 'react';
 import Stage from './Stage';
 import Dispay from './Display';
 import StartButton from './StartButton';
+import { createStage } from '../util/helpers';
 
 const Tetris = () => {
 	return (
 		<div>
-			<Stage />
+			<Stage stage={createStage()} />
 			<aside>
 				<div>
 					<Dispay text="Score" />
