@@ -30,9 +30,4 @@ export const shapes = {
 	},
 };
 
-export const randomshape = () => {
-	const shape = 'IJLOSTZ',
-		random = shapes[Math.floor(Math.random() * shapes.length)];
-
-	return shapes[random];
-};
+export const randomshape = () => shapes[shapes[Math.floor(Math.random() * shapes.length)]];
