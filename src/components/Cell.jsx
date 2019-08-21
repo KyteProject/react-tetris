@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { shapes } from '../util/shapes';
+import { SHAPES } from '../util/shapes';
 
 const StyledCell = styled.div`
 	width: auto;
@@ -13,7 +13,7 @@ const StyledCell = styled.div`
 	border-left-color: rgba(${( props ) => props.color}, 0.3);
 `;
 
-const Cell = ( { type, color } ) => <StyledCell type={type} color={shapes[ type ].color} />;
+const Cell = ( { type, color } ) => <StyledCell type={type} color={SHAPES[ type ].color} />;
 
 Cell.propTypes = {
 	type: PropTypes.number.isRequired

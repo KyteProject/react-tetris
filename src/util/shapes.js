@@ -1,4 +1,4 @@
-export const shapes = {
+export const SHAPES = {
 	0: { shape: [ [ 0 ] ], color: '0, 0, 0' },
 	I: {
 		shape: [ [ 0, 'I', 0, 0 ], [ 0, 'I', 0, 0 ], [ 0, 'I', 0, 0 ], [ 0, 'I', 0, 0 ] ],
@@ -30,4 +30,9 @@ export const shapes = {
 	}
 };
 
-export const randomshape = () => shapes[ shapes[ Math.floor( Math.random() * shapes.length ) ] ];
+export const randomShape = () => {
+	const shapes = 'IJLOSTZ',
+		randShape = shapes[ Math.floor( Math.random() * shapes.length ) ];
+
+	return SHAPES[ randShape ];
+};
