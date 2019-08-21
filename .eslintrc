@@ -3,11 +3,10 @@
 		"eslint:recommended",
 		"plugin:jsx-a11y/recommended",
 		"plugin:react/recommended",
-		"plugin:promise/recommended",
+		"plugin:promise/recommended"
 	],
 	"rules": {
 		"react-hooks/rules-of-hooks": "error",
-		"react-hooks/exhaustive-deps": "warn",
 		"react/prop-types": 0,
 		"react/require-default-props": 0,
 		"react/jsx-uses-vars": [
@@ -250,7 +249,8 @@
 		"react",
 		"import",
 		"jsx-a11y",
-		"react-hooks"
+		"react-hooks",
+		"promise"
 	],
 	"parser": "babel-eslint",
 	"settings": {
