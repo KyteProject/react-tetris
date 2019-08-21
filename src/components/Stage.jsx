@@ -16,7 +16,7 @@ export const StyledStage = styled.div`
 `;
 
 const Stage = ( { stage } ) => (
-	<StyledStage width={stage[ 0 ].length} height={stage.length}>
+	<StyledStage width={stage[ 0 ].length} height={stage.length} id="stage">
 		{stage.map( ( row ) => row.map( ( cell, x ) => <Cell key={x} type={cell[ 0 ]} /> ) )}
 	</StyledStage>
 );

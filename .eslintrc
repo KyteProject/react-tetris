@@ -3,7 +3,8 @@
 		"eslint:recommended",
 		"plugin:jsx-a11y/recommended",
 		"plugin:react/recommended",
-		"plugin:promise/recommended"
+		"plugin:promise/recommended",
+		"plugin:cypress/recommended"
 	],
 	"rules": {
 		"react-hooks/rules-of-hooks": "error",
@@ -250,7 +251,8 @@
 		"import",
 		"jsx-a11y",
 		"react-hooks",
-		"promise"
+		"promise",
+		"cypress"
 	],
 	"parser": "babel-eslint",
 	"settings": {
