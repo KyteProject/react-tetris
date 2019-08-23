@@ -224,7 +224,7 @@
 
 		"arrow-parens": [
 			2,
-			"always"
+			"as-needed"
 		],
 		"arrow-spacing": 2,
 		"constructor-super": 2,

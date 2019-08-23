@@ -9,6 +9,7 @@ import Dispay from './Display';
 import StartButton from './StartButton';
 import bgImage from '../images/bg.png';
 import Display from './Display';
+import { createStage } from './../util/helpers';
 
 const StyledWrapper = styled.div`
 	width: 100vw;
@@ -35,13 +36,43 @@ const StyledTetris = styled.div`
 const Tetris = () => {
 	const [ dropTime, setDropTime ] = useState( null ),
 		[ gameOver, setGameOver ] = useState( false ),
-		[ player ] = usePlayer(),
+		[ player, updatePlayerPos, resetPlayer ] = usePlayer(),
 		[ stage, setStage ] = useStage( player );
 
 	console.log( 're-render' );
 
+	const movePlayer = dir => {
+		updatePlayerPos( { x: dir, y: 0 } );
+	};
+
+	const startGame = () => {
+		// reset everything
+		setStage( createStage() );
+		resetPlayer();
+	};
+
+	const drop = () => {
+		updatePlayerPos( { x: 0, y: 1, collided: false } );
+	};
+
+	const dropPlayer = () => {
+		drop();
+	};
+
+	const move = ( { keyCode } ) => {
+		if ( !gameOver ) {
+			if ( keyCode === 37 ) {
+				movePlayer( -1 );
+			} else if ( keyCode === 39 ) {
+				movePlayer( -1 );
+			} else if ( keyCode === 40 ) {
+				dropPlayer();
+			}
+		}
+	};
+
 	return (
-		<StyledWrapper>
+		<StyledWrapper role="button" tabIndex="0" onKeyDown={e => move( e )}>
 			<StyledTetris>
 				<Stage stage={stage} />
 				<aside>
@@ -54,7 +85,7 @@ const Tetris = () => {
 							<Dispay text="Level" />
 						</div>
 					)}
-					<StartButton />
+					<StartButton callback={startGame} />
 				</aside>
 			</StyledTetris>
 		</StyledWrapper>
