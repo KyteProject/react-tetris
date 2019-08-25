@@ -182,7 +182,7 @@
 		],
 		"operator-linebreak": [
 			2,
-			"none"
+			"after"
 		],
 		"quotes": [
 			"warn",

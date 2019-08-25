@@ -9,7 +9,7 @@ import Dispay from './Display';
 import StartButton from './StartButton';
 import bgImage from '../images/bg.png';
 import Display from './Display';
-import { createStage } from './../util/helpers';
+import { createStage, checkCollision } from './../util/helpers';
 
 const StyledWrapper = styled.div`
 	width: 100vw;
@@ -37,22 +37,35 @@ const Tetris = () => {
 	const [ dropTime, setDropTime ] = useState( null ),
 		[ gameOver, setGameOver ] = useState( false ),
 		[ player, updatePlayerPos, resetPlayer ] = usePlayer(),
-		[ stage, setStage ] = useStage( player );
+		[ stage, setStage ] = useStage( player, resetPlayer );
 
 	console.log( 're-render' );
 
 	const movePlayer = dir => {
-		updatePlayerPos( { x: dir, y: 0 } );
+		if ( !checkCollision( player, stage, { x: dir, y: 0 } ) ) {
+			updatePlayerPos( { x: dir, y: 0 } );
+		}
 	};
 
 	const startGame = () => {
 		// reset everything
 		setStage( createStage() );
 		resetPlayer();
+		setGameOver( false );
 	};
 
 	const drop = () => {
-		updatePlayerPos( { x: 0, y: 1, collided: false } );
+		if ( !checkCollision( player, stage, { x: 0, y: 1 } ) ) {
+			updatePlayerPos( { x: 0, y: 1, collided: false } );
+		} else {
+			if ( player.pos.y < 1 ) {
+				console.log( 'Game over!' );
+
+				setGameOver( true );
+				setDropTime( null );
+			}
+			updatePlayerPos( { x: 0, y: 0, collided: true } );
+		}
 	};
 
 	const dropPlayer = () => {
@@ -64,7 +77,7 @@ const Tetris = () => {
 			if ( keyCode === 37 ) {
 				movePlayer( -1 );
 			} else if ( keyCode === 39 ) {
-				movePlayer( -1 );
+				movePlayer( 1 );
 			} else if ( keyCode === 40 ) {
 				dropPlayer();
 			}

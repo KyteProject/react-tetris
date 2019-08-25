@@ -19,14 +19,13 @@ export const usePlayer = () => {
 	};
 
 	const resetPlayer = useCallback( () => {
+		console.log( 'reset player' );
 		setPlayer( {
 			pos: { x: stageWidth / 2 - 2, y: 0 },
 			shape: randomShape().shape,
 			collided: false
 		} );
-
-		console.log( 'player reset' );
-	} );
+	}, [] );
 
 	return [ player, updatePlayerPos, resetPlayer ];
 };
