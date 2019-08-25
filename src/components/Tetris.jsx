@@ -36,7 +36,7 @@ const StyledTetris = styled.div`
 const Tetris = () => {
 	const [ dropTime, setDropTime ] = useState( null ),
 		[ gameOver, setGameOver ] = useState( false ),
-		[ player, updatePlayerPos, resetPlayer ] = usePlayer(),
+		[ player, updatePlayerPos, resetPlayer, playerRotate ] = usePlayer(),
 		[ stage, setStage ] = useStage( player, resetPlayer );
 
 	console.log( 're-render' );
@@ -75,11 +75,17 @@ const Tetris = () => {
 	const move = ( { keyCode } ) => {
 		if ( !gameOver ) {
 			if ( keyCode === 37 ) {
+				// left arrow
 				movePlayer( -1 );
 			} else if ( keyCode === 39 ) {
+				// right arrow
 				movePlayer( 1 );
 			} else if ( keyCode === 40 ) {
+				// down arrow
 				dropPlayer();
+			} else if ( keyCode === 38 ) {
+				// up arrow
+				playerRotate( stage, 1 );
 			}
 		}
 	};
