@@ -13,10 +13,10 @@ const StyledCell = styled.div`
 	border-left-color: rgba(${props => props.color}, 0.3);
 `;
 
-const Cell = ( { type, color } ) => <StyledCell type={type} color={SHAPES[ type ].color} />;
+const Cell = ( { type, color } ) => <StyledCell type={type} color={SHAPES[ type ].color} data-cy="cell" />;
 
 Cell.propTypes = {
-	type: PropTypes.number.isRequired
+	type: PropTypes.string.isRequired
 };
 
 export default Cell;

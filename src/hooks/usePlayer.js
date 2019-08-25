@@ -1,12 +1,12 @@
 import { useState, useCallback } from 'react';
 
-import { randomShape } from '../util/shapes';
+import { SHAPES, randomShape } from '../util/shapes';
 import { stageWidth } from '../util/helpers';
 
 export const usePlayer = () => {
 	const [ player, setPlayer ] = useState( {
 		pos: { x: 0, y: 0 },
-		shape: randomShape(),
+		shape: SHAPES[ '0' ].shape,
 		collided: false
 	} );
 

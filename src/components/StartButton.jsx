@@ -17,6 +17,10 @@ const StyledStartButton = styled.button`
 	cursor: pointer;
 `;
 
-const StartButton = ( { callback } ) => <StyledStartButton onClick={callback}>Start Game</StyledStartButton>;
+const StartButton = ( { callback } ) => (
+	<StyledStartButton onClick={callback} data-cy="btn-start">
+		Start Game
+	</StyledStartButton>
+);
 
 export default StartButton;
