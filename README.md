@@ -1,7 +1,9 @@
-# Reeact Tetris
+# [React Tetris](https://kyteproject.github.io/react-tetris/)
 > A Tetris clone written in Javascript with React
 
 Just an educational project :)
+
+View demo here: [https://kyteproject.github.io/react-tetris/](https://kyteproject.github.io/react-tetris/)
 
 ## Installation 💻
 
@@ -29,7 +31,7 @@ cd
 yarn install
 ```
 
-2) Launch hot-reloadable developemnt server:
+2) Launch hot-reloadable development server:
 
 ```sh
 yarn dev
@@ -38,6 +40,7 @@ yarn dev
 ## Technology used 🚀
 
 * React
+* Cypress
 
 ## Meta #️⃣
 
